@@ -1,0 +1,15 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "IdMapping",
+  "doc": "Mapping Old Ruter Quay Ids To New NSR Ids",
+  "fields":[
+    {
+      "name": "nsrId", "type": "string"
+    },
+    {
+      "name": "oldId", "type": "string"
+     }
+
+  ]
+}

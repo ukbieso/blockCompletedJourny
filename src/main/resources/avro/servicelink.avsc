@@ -1,0 +1,14 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "ServiceLink",
+  "doc": "ServiceLink",
+  "fields": [
+       {"name": "serviceLinkID", "type": "string"}
+      ,{"name": "distance", "type": ["null", "double"], "default": null}
+      ,{"name": "poslistID", "type": ["null", "string"], "default": null}
+      ,{"name": "linklocations","type": ["null",{ "type": "array","items": "Position"}], "default": null }
+      ,{"name": "fromPoint", "type": ["null", "QuayStop"], "default": null}
+      ,{"name": "toPoint", "type": ["null","QuayStop"], "default": null}
+    ]
+}

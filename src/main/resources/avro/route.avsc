@@ -1,0 +1,11 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "Route",
+  "doc": "Route",
+    "fields": [
+         {"name": "id", "type": "string"},
+         {"name": "line", "type": "no.ruter.events.avro.tps.Line"},
+         {"name": "name", "type": "string"}
+      ]
+}

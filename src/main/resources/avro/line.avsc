@@ -1,0 +1,13 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "Line",
+  "doc": "Line",
+  "fields": [
+        {"name": "id", "type": "string"}
+       ,{"name": "name", "type": "string"}
+       ,{"name": "publicCode",  "type":  ["null", "string"], "default": null}
+       ,{"name": "colour",  "type":  ["null", "string"], "default": null}
+       ,{"name": "transportMode", "type":  ["null", "string"], "default": null}
+    ]
+}

@@ -1,0 +1,18 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "QuayStop",
+  "doc": "Quay with Stop Place",
+  "fields": [
+       {"name": "stopId", "type": "string"}
+      ,{"name": "stopName", "type": "string"}
+      ,{"name": "quayId", "type": "string"}
+      ,{"name": "position", "type": "Position"}
+      ,{"name": "order", "type": "int"}
+      ,{"name": "arrivalTime" , "type":  ["null", "long"], "default": null }
+      ,{"name": "departureTime" , "type":  ["null", "long"], "default": null }
+      ,{"name": "quayOldId", "type": ["null","string"], "default": null}
+      ,{"name": "destinationDisplay", "type": ["null","string"], "default": null}
+      ,{"name": "destinationDisplayVia", "type": ["null","string"], "default": null}
+    ]
+}

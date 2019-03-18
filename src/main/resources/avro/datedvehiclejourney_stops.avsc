@@ -1,0 +1,71 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "DatedVehicleJourneyStops",
+  "doc": "TPS ServiceJourney with Stops and Quays",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "date",
+      "type": "string"
+    },
+    {
+      "name": "routeName",
+      "type": "string"
+    },
+    {
+      "name": "routeId",
+      "type": "string"
+    },
+    {
+      "name": "journeyPattern",
+      "type": "string"
+    },
+    {
+      "name": "blockRef",
+      "type": "string"
+    },
+    {
+      "name": "hastusBlockId",
+      "type": "string"
+    },
+    {
+      "name": "originAimedDepartureTime",
+      "type": "string"
+    },
+    {
+      "name": "lineId",
+      "type": "string"
+    },
+    {
+      "name": "linePublicCode",
+      "type": "string"
+    },
+    {
+      "name": "order",
+      "type": "int"
+    },
+    {
+      "name": "totalJourneys",
+      "type": "int"
+    },
+    {
+      "name": "quayStops",
+      "type": {
+        "type": "array",
+        "items": "QuayStop"
+      }
+    },
+    {
+      "name": "journeyRef",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  ]
+}

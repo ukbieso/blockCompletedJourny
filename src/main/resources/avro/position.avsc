@@ -1,0 +1,10 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "Position",
+  "doc": "Position",
+    "fields": [
+      {"name": "lat", "type": "double"}
+     ,{"name": "lon", "type": "double"}
+      ]
+}

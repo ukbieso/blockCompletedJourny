@@ -1,0 +1,11 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "Stop",
+  "doc": "Stop Place",
+  "fields": [
+       {"name": "id", "type": "string"}
+      ,{"name": "name", "type": "string"}
+      ,{"name": "quays", "type": ["null", {"type": "array", "items": "Quay"}], "default": null }
+    ]
+}

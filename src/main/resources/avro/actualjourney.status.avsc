@@ -1,0 +1,155 @@
+{
+  "type": "record",
+  "name": "ActualJourneyStatusV1",
+  "namespace": "no.ruter.avro.entity.actual.journey.status",
+  "doc": "Status of an actual journey. An actual journey connects a vehicle to a journey and captures how a planned journey was actualy delivered.",
+  "fields": [
+    {
+      "name": "Timestamp",
+      "type": "string",
+      "doc": "Timestamp as close to the actual event that changed the entity in ISO format. Ex. GPS timestamp"
+    },
+    {
+      "name": "TraceID",
+      "type": "string",
+      "doc": "Identify the a transaction uniquely across multiple changes in entities and commands. If a change in an entity is done as a consequence of a change in another entity partition or a command the traceID is copyed from that record. Otherwise a new unique UUID is created."
+    },
+    {
+      "name": "OriginID",
+      "type": "string",
+      "doc": "Identify the originating senderID of a transaction across multiple changes in entities and commands. If a change in an entity is done as a consequence of a change in another entity partition or a command the senderID is copyed from that record. Otherwise same value as in senderID is used."
+    },
+    {
+      "name": "SenderID",
+      "type": "string",
+      "doc": "Identify the creator of this change to the entity partition"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "default": "actualjourney",
+      "doc": "This identifiy the vehicle entity and sould always be set to 'vehicle' in this schema"
+    },
+    {
+      "name": "Partition",
+      "type": "string",
+      "default": "status",
+      "doc": "This identifiy the entity partition and sould always be set to 'status' in this schema"
+    },
+    {
+      "name": "Version",
+      "type": "int",
+      "default": 1,
+      "doc": "This identifiy the version of the schema and sould always be set to 1 in this schema"
+    },
+    {
+      "name": "EntityPartition",
+      "doc": "The data of the entity partition",
+      "type": {
+        "name": "EntityPartition",
+        "type": "record",
+        "fields": [
+          {
+            "name": "Key",
+            "type": "string",
+            "doc": "The key of an entity. All entities must use the key attribute to store their primary key"
+          },
+          {
+            "name": "Status",
+            "doc": "Last known status of the actual Journey.",
+            "type": {
+              "name": "Status",
+              "doc": "Last known status of the actual Journey.",
+              "type": "enum",
+              "symbols": [
+                "COMMITTED",
+                "RUNNING",
+                "ENDED"
+              ]
+            }
+          },
+          {
+            "name": "EndStatus",
+            "doc": "Reason for ending",
+            "type": [
+              "null",
+              {
+                "name": "EndStatus",
+                "doc": "Reason for ending",
+                "type": "enum",
+                "symbols": [
+                  "FINISHED",
+                  "CANCELLED",
+                  "DETECTED",
+                  "TIMEOUT",
+                  "UNKNOWN"
+                ]
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "LastActualCallRef",
+            "doc": "Reference to last actual call on journey.",
+            "default": null,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          {
+            "name": "NextActualCallRef",
+            "doc": "Reference to next planned actual call on journey.",
+            "default": null,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          {
+            "name": "JourneyDelay",
+            "doc": "Delay object",
+            "default": null,
+            "type": [
+              "null",
+              {
+                "name": "JourneyDelay",
+                "doc": "Delay object",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "Delay",
+                    "doc": "Delay in seconds. Negative numbers are ahead of shedule.",
+                    "type": "int"
+                  },
+                  {
+                    "name": "Source",
+                    "doc": "Source of delay information.",
+                    "type": {
+                      "name": "Source",
+                      "doc": "Source of delay information.",
+                      "type": "enum",
+                      "symbols": [
+                        "SIS",
+                        "UNKNOWN"
+                      ]
+                    }
+                  },
+                  {
+                    "name": "DelayTimestamp",
+                    "doc": "Timestamp for delay estimation.",
+                    "default": null,
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

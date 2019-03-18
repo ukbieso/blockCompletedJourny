@@ -1,0 +1,17 @@
+{
+     "namespace": "no.ruter.events.avro.tps",
+     "type": "record",
+     "name": "JourneyPatternServiceLinks",
+     "doc": "Journey patterns with service links",
+       "fields": [
+            {"name": "journeyPatternID", "type": "string"}
+           ,{"name": "route", "type": "Route"}
+           ,{ "name": "servicelinks",
+              "type": [
+                  "null",
+                  { "type": "array",
+                      "items": "ServiceLink"
+                      }
+              ] , "default": null }
+         ]
+   }

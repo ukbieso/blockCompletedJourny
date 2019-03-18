@@ -1,0 +1,27 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "RouteStops",
+  "doc": "TPS Route with Stops and Quays",
+  "fields": [
+    {
+      "name": "routeId",
+      "type": "string"
+    },
+    {
+      "name": "routeName",
+      "type": "string"
+    },
+    {
+      "name": "journeyId",
+      "type": "string"
+    },
+    {
+      "name": "stops",
+      "type": {
+        "type": "array",
+        "items": "Stop"
+      }
+    }
+  ]
+}

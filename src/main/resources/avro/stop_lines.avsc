@@ -1,0 +1,10 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "StopLines",
+  "doc": "Stop Place with connecting Lines",
+  "fields": [
+       {"name": "stop", "type": "Stop"}
+      ,{"name": "lines", "type": {"type": "array", "items": "Line"}}
+    ]
+}

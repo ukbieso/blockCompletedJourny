@@ -1,0 +1,30 @@
+{
+  "namespace": "no.ruter.events.avro.tps",
+  "type": "record",
+  "name": "Block",
+  "doc": "Block for a given day",
+  "fields": [
+    {
+      "name": "date",
+      "type": "string"
+    },
+    {
+      "name": "blockRef",
+      "type": "string"
+    },
+    {
+      "name": "hastusBlockId",
+      "type": "string"
+    },
+    {
+      "name": "journeys",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "serviceJourneyId",
+          "type": "string"
+        }
+      }
+    }
+  ]
+}
